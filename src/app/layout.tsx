@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import StyledComponentsRegistry from "@/lib/styled-components-registry";
-import "@/styles/globals.css";
+import GlobalStyles from "@/styles/GlobalStyles";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -20,7 +20,10 @@ const RootLayout = ({
   return (
     <html lang="sk" className={`${inter.variable} antialiased`}>
       <body>
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <StyledComponentsRegistry>
+          <GlobalStyles />
+          {children}
+        </StyledComponentsRegistry>
       </body>
     </html>
   );

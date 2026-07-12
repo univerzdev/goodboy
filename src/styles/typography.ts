@@ -32,6 +32,14 @@ export const typography = {
 
     md: {
       // 16px / 24px / 0px
+      medium: css`
+        font-weight: 500;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        letter-spacing: 0;
+      `,
+
+      // 16px / 24px / 0px
       semibold: css`
         font-weight: 600;
         font-size: 1rem;
@@ -41,10 +49,10 @@ export const typography = {
 
       // 16px / 24px / 0px
       regular: css`
-        font-weight: var(--text-weight);
-        font-size: var(--text-size);
-        line-height: var(--text-line-height);
-        letter-spacing: var(--text-letter-spacing);
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        letter-spacing: 0;
       `,
     },
   },
