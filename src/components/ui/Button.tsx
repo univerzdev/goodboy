@@ -1,0 +1,86 @@
+"use client";
+
+import { forwardRef, type ButtonHTMLAttributes } from "react";
+import styled, { css } from "styled-components";
+import { buttonSizes, buttonVariants, type ButtonVariant, type ControlSize } from "@/styles/components";
+import { typography } from "@/styles/typography";
+
+export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  variant?: ButtonVariant;
+  size?: ControlSize;
+  loading?: boolean;
+};
+
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ variant = "primary", size = "xl", loading = false, disabled, children, ...props }, ref) => {
+    return (
+      <StyledButton
+        ref={ref}
+        $variant={variant}
+        $size={size}
+        $loading={loading}
+        disabled={disabled || loading}
+        {...props}
+      >
+        {children}
+      </StyledButton>
+    );
+  }
+);
+
+Button.displayName = "Button";
+
+type StyledButtonProps = {
+  $variant: ButtonVariant;
+  $size: ControlSize;
+  $loading: boolean;
+};
+
+const StyledButton = styled.button<StyledButtonProps>`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease,
+    opacity 120ms ease;
+
+  ${typography.text.md.medium}
+
+  ${({ $size }) => {
+    const size = buttonSizes[$size];
+    return css`
+      padding: ${size.py} ${size.px};
+      gap: ${size.gap};
+    `;
+  }}
+
+  ${({ $variant, $loading }) => {
+    const variant = buttonVariants[$variant];
+    return css`
+      background: ${$loading ? variant.loading : variant.base};
+      color: ${variant.text};
+      border-color: ${variant.border};
+
+      &:hover {
+        background: ${variant.hover};
+      }
+
+      &:active {
+        background: ${variant.active};
+      }
+
+      &:disabled {
+        background: ${variant.disabled};
+        opacity: 0.32;
+        cursor: not-allowed;
+      }
+    `;
+  }}
+`;
+
+export default Button;
