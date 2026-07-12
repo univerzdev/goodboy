@@ -25,6 +25,11 @@
   --warning: #b45309;
   --error: #be123c;
 
+  --text-weight: 400;
+  --text-size: 1rem;
+  --text-line-height: 1.5rem;
+  --text-letter-spacing: 0;
+
   --background: #ffffff;
 }
 
@@ -42,4 +47,8 @@ body {
   background: var(--background);
   color: var(--primary);
   font-family: var(--font-inter), sans-serif;
+  font-weight: var(--text-weight);
+  font-size: var(--text-size);
+  line-height: var(--text-line-height);
+  letter-spacing: var(--text-letter-spacing);
 }
