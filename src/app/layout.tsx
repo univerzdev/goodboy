@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import StyledComponentsRegistry from "@/lib/styled-components-registry";
 import GlobalStyles from "@/styles/GlobalStyles";
+import Container from "@/components/ui/Container";
+import ReactQueryProvider from "@/lib/react-query-provider";
+import sk from "@/translations/sk";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -9,9 +12,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Good Boy",
-  description: "Zlepšovanie života psov v Žiline",
+  title: sk.app.title,
+  description: sk.app.description,
 };
+
 const RootLayout = ({
   children,
 }: Readonly<{
@@ -22,7 +26,9 @@ const RootLayout = ({
       <body>
         <StyledComponentsRegistry>
           <GlobalStyles />
-          {children}
+          <ReactQueryProvider>
+            <Container>{children}</Container>
+          </ReactQueryProvider>
         </StyledComponentsRegistry>
       </body>
     </html>
