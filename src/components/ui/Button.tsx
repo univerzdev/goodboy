@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { forwardRef, type ButtonHTMLAttributes } from "react";
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { buttonSizes, buttonVariants, type ButtonVariant, type ControlSize } from "@/styles/components";
 import { typography } from "@/styles/typography";
 
@@ -22,6 +23,11 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={disabled || loading}
         {...props}
       >
+        {loading && (
+          <LoadingIcon aria-hidden="true">
+            <Image src="/icons/loading.svg" alt="" width={20} height={20} />
+          </LoadingIcon>
+        )}
         {children}
       </StyledButton>
     );
@@ -86,6 +92,22 @@ const StyledButton = styled.button<StyledButtonProps>`
       }
     `;
   }}
+`;
+
+const spin = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+const LoadingIcon = styled.span`
+  display: inline-flex;
+  flex-shrink: 0;
+  animation: ${spin} 1.6s linear infinite;
 `;
 
 export default Button;

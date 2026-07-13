@@ -15,9 +15,9 @@ Input.displayName = "Input";
 
 const StyledInput = styled.input`
   width: 100%;
-  border: 1px solid #f3f4f6;
+  border: 1px solid ${colors.secondary};
   border-radius: 8px;
-  background: #f3f4f6;
+  background: ${colors.secondary};
   color: ${colors.primary};
   outline: none;
   font-family: var(--font-inter), sans-serif;
@@ -32,26 +32,26 @@ const StyledInput = styled.input`
   ${typography.text.md.regular}
 
   &::placeholder {
-    color: #9ca3af;
+    color: ${colors.quaternary};
   }
 
   &:hover {
-    background: #e5e7eb;
-    border-color: #e5e7eb;
+    background: ${colors.action.secondary.hover};
+    border-color: ${colors.action.secondary.hover};
   }
 
   &:focus {
-    border: 1px solid #3730a3;
+    border: 1px solid ${colors.action.primary.active};
     box-shadow: 0 0 0 2px #3730a33d;
   }
 
   &[aria-invalid="true"] {
-    border: 1px solid #be123c;
+    border: 1px solid ${colors.semantic.error};
     box-shadow: none;
   }
 
   &[aria-invalid="true"]:focus {
-    border: 1px solid #be123c;
+    border: 1px solid ${colors.semantic.error};
     box-shadow: 0 0 0 2px #f43f5e3d;
   }
 
