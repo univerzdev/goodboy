@@ -1,49 +1,58 @@
 "use client";
 
 import { forwardRef, type InputHTMLAttributes } from "react";
-import styled, { css } from "styled-components";
-import { inputSizes, type ControlSize } from "@/styles/components";
+import styled from "styled-components";
 import { colors } from "@/styles/colors";
 import { typography } from "@/styles/typography";
 
-export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
-  uiSize?: ControlSize;
-};
+export type InputProps = InputHTMLAttributes<HTMLInputElement>;
 
-const Input = forwardRef<HTMLInputElement, InputProps>(({ uiSize = "md", ...props }, ref) => {
-  return <StyledInput ref={ref} $size={uiSize} {...props} />;
+const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+  return <StyledInput ref={ref} {...props} />;
 });
 
 Input.displayName = "Input";
 
-type StyledInputProps = {
-  $size: ControlSize;
-};
-
-const StyledInput = styled.input<StyledInputProps>`
+const StyledInput = styled.input`
   width: 100%;
-  border: 1px solid ${colors.action.secondary.active};
-  border-radius: 0.5rem;
-  background: ${colors.inverse};
+  border: 1px solid #f3f4f6;
+  border-radius: 8px;
+  background: #f3f4f6;
   color: ${colors.primary};
   outline: none;
+  font-family: var(--font-inter), sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0;
+  vertical-align: middle;
+  padding: 16px;
 
   ${typography.text.md.regular}
 
-  ${({ $size }) => {
-    const size = inputSizes[$size];
-    return css`
-      padding: ${size.py} ${size.px};
-    `;
-  }}
-
   &::placeholder {
-    color: ${colors.tertiary};
+    color: #9ca3af;
+  }
+
+  &:hover {
+    background: #e5e7eb;
+    border-color: #e5e7eb;
   }
 
   &:focus {
-    border-color: ${colors.action.primary.base};
-    box-shadow: 0 0 0 0.125rem rgba(79, 70, 229, 0.15);
+    border: 1px solid #3730a3;
+    box-shadow: 0 0 0 2px #3730a33d;
+  }
+
+  &[aria-invalid="true"] {
+    border: 1px solid #be123c;
+    box-shadow: none;
+  }
+
+  &[aria-invalid="true"]:focus {
+    border: 1px solid #be123c;
+    box-shadow: 0 0 0 2px #f43f5e3d;
   }
 
   &:disabled {

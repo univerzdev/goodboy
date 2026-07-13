@@ -16,6 +16,7 @@ export const typography = {
       font-size: 3rem;
       line-height: 3.5rem;
       letter-spacing: -0.00625em;
+      margin: 0;
     `,
   },
 

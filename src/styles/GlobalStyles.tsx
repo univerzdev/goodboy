@@ -14,6 +14,11 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
   }
 
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
   body {
     background: ${colors.background};
     color: ${colors.primary};

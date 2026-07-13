@@ -10,11 +10,6 @@ type Spacing = {
   gap: string;
 };
 
-type InputSpacing = {
-  py: string;
-  px: string;
-};
-
 type ButtonColors = {
   base: string;
   hover: string;
@@ -26,25 +21,10 @@ type ButtonColors = {
 };
 
 export const buttonSizes: Record<ControlSize, Spacing> = {
-  // xl: 16px 32px, gap 8px
-  xl: { py: "1rem", px: "2rem", gap: "0.5rem" },
-  // lg: 14px 24px, gap 8px
-  lg: { py: "0.875rem", px: "1.5rem", gap: "0.5rem" },
-  // md: 6px 12px, gap 4px
-  md: { py: "0.375rem", px: "0.75rem", gap: "0.25rem" },
-  // sm: 4px 8px, gap 4px
-  sm: { py: "0.25rem", px: "0.5rem", gap: "0.25rem" },
-};
-
-export const inputSizes: Record<ControlSize, InputSpacing> = {
-  // xl: 18px 16px
-  xl: { py: "1.125rem", px: "1rem" },
-  // lg: 14px 16px
-  lg: { py: "0.875rem", px: "1rem" },
-  // md: 8px 12px
-  md: { py: "0.5rem", px: "0.75rem" },
-  // sm: 4px 6px
-  sm: { py: "0.25rem", px: "0.375rem" },
+  xl: { py: "16px", px: "32px", gap: "8px" },
+  lg: { py: "14px", px: "24px", gap: "8px" },
+  md: { py: "6px", px: "12px", gap: "4px" },
+  sm: { py: "4px", px: "8px", gap: "4px" },
 };
 
 export const buttonVariants: Record<ButtonVariant, ButtonColors> = {

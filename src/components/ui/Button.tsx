@@ -40,13 +40,14 @@ const StyledButton = styled.button<StyledButtonProps>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.5rem;
-  border: 1px solid transparent;
+  border-radius: 8px;
+  border: 0;
   cursor: pointer;
   text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
   transition:
     background-color 120ms ease,
-    border-color 120ms ease,
     opacity 120ms ease;
 
   ${typography.text.md.medium}
@@ -64,7 +65,11 @@ const StyledButton = styled.button<StyledButtonProps>`
     return css`
       background: ${$loading ? variant.loading : variant.base};
       color: ${variant.text};
-      border-color: ${variant.border};
+
+      &:focus-visible {
+        outline: 2px solid ${variant.active};
+        outline-offset: 2px;
+      }
 
       &:hover {
         background: ${variant.hover};
