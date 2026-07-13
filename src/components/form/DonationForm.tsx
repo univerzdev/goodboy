@@ -13,7 +13,7 @@ import StepThree from "@/components/form/steps/StepThree";
 import { DonationFormValues, StepIndex } from "@/components/form/types";
 import { t } from "@/lib/i18n";
 import Button from "@/components/ui/Button";
-import ProgressBar from "@/components/ui/ProgressBar";
+import ProgressBar from "@/components/form/ProgressBar";
 import Footer from "@/components/ui/footer/Footer";
 import { colors } from "@/styles/colors";
 import { typography } from "@/styles/typography";
