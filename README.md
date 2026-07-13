@@ -2,20 +2,42 @@
 
 GoodBoy Foundation to support Slovak shelters for dogs.
 
-## Scripts
+## Quick Start
+
+Copy environment example file:
 
 ```bash
-pnpm dev
-pnpm build
-pnpm start
-pnpm lint
+cp .env.example .env
 ```
 
-## Environment
-
-Create `.env.local` and set:
+Then install dependencies and start the app:
 
 ```bash
-NEXT_PUBLIC_SHELTERS_API_URL=https://frontend-assignment-api.goodrequest.dev/api/v1
-NEXT_PUBLIC_SHELTERS_STALE_TIME_MS=300000
+pnpm install
+pnpm run dev
+```
+
+## Production Build
+
+Build and start the production server:
+
+```bash
+pnpm run build
+pnpm run start
+```
+
+## Code Checks
+
+Run lint, TypeScript, and formatting checks:
+
+```bash
+pnpm run lint
+pnpm run tsc:check
+pnpm run prettier
+```
+
+Fix formatting automatically:
+
+```bash
+pnpm run prettier:fix
 ```
