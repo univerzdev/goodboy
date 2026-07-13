@@ -12,7 +12,9 @@ type FooterProps = {
 const Footer = ({ showSocials = true }: FooterProps) => {
   return (
     <StyledFooter>
-      <Image src="/icons/logo.svg" alt={t("footer.logoAlt")} width={124} height={32} />
+      <Link href="/" aria-label={t("footer.logoAlt")}>
+        <Image src="/icons/logo.svg" alt={t("footer.logoAlt")} width={124} height={32} />
+      </Link>
       <FooterMenu>
         {showSocials ? <Socials /> : null}
         <Link href="/kontakt">{t("footer.contact")}</Link>
