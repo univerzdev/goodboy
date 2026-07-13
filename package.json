@@ -8,8 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "tsc:check": "tsc --noEmit --incremental",
-    "prettier": "prettier --check --ignore-path .gitignore .",
-    "prettier:fix": "prettier --write --ignore-path .gitignore ."
+    "prettier": "prettier --check --ignore-path .gitignore --ignore-path .prettierignore .",
+    "prettier:fix": "prettier --write --ignore-path .gitignore --ignore-path .prettierignore ."
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",
